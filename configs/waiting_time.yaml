@@ -1,0 +1,32 @@
+# Configuration pour l'analyse du temps d'attente
+
+detector:
+  model_path: "models/yolov8n.pt"
+  conf_threshold: 0.25
+  iou_threshold: 0.45
+  device: "auto"
+  target_classes: ["person"]
+
+tracker:
+  max_disappeared: 50  # Plus élevé pour les files d'attente
+  min_iou_threshold: 0.3
+
+waiting_time:
+  queue_zone:
+    name: "File d'attente"
+    points: [[100, 100], [400, 100], [400, 400], [100, 400]]  # Zone de la file
+    color: [0, 255, 255]  # Couleur jaune
+  
+  # Configuration du temps
+  use_real_time: true  # true pour temps réel, false pour temps basé sur les frames
+  
+  # Seuils d'alerte (en secondes)
+  alert_thresholds:
+    warning: 60    # Alerte si temps d'attente > 1 minute
+    critical: 300  # Alerte critique si temps d'attente > 5 minutes
+
+# Configuration de sortie
+output:
+  save_results: true
+  results_file: "results/waiting_time_results.json"
+  generate_report: true

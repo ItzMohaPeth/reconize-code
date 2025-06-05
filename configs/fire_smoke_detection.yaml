@@ -1,0 +1,48 @@
+# Configuration pour la détection de fumée et de feu
+
+detector:
+  model_path: "models/yolov8n.pt"  # Modèle principal
+  conf_threshold: 0.25
+  iou_threshold: 0.45
+  device: "auto"
+  target_classes: ["fire", "smoke"]  # Classes spécifiques si disponibles
+
+fire_smoke_detection:
+  # Utiliser la détection basée sur les couleurs comme fallback
+  use_color_detection: true
+  
+  # Seuils de couleur pour la détection
+  color_thresholds:
+    fire:
+      lower_hsv: [0, 50, 50]     # Seuil HSV inférieur pour le feu
+      upper_hsv: [35, 255, 255]  # Seuil HSV supérieur pour le feu
+    
+    smoke:
+      lower_gray: 100  # Seuil de gris inférieur pour la fumée
+      upper_gray: 200  # Seuil de gris supérieur pour la fumée
+  
+  # Configuration des alertes
+  alerts:
+    min_detection_time: 3.0  # Temps minimum de détection avant alerte
+    cooldown: 10.0           # Temps d'attente entre les alertes
+    emergency_contact: true
+    save_evidence: true
+    evidence_path: "alerts/fire_smoke_evidence/"
+  
+  # Zones de surveillance spécifiques (optionnel)
+  surveillance_zones:
+    kitchen:
+      name: "Cuisine"
+      points: [[100, 100], [300, 100], [300, 250], [100, 250]]
+      priority: "high"
+    
+    storage:
+      name: "Entrepôt"
+      points: [[400, 150], [600, 150], [600, 350], [400, 350]]
+      priority: "medium"
+
+# Configuration de sortie
+output:
+  save_results: true
+  results_file: "results/fire_smoke_results.json"
+  emergency_log: "logs/emergency_alerts.log"

@@ -1,0 +1,27 @@
+# Configuration pour le comptage de traversée de ligne
+
+detector:
+  model_path: "models/yolov8n.pt"  # Chemin vers le modèle YOLOv8
+  conf_threshold: 0.25
+  iou_threshold: 0.45
+  device: "auto"  # "cpu", "cuda:0", ou "auto"
+  target_classes: ["person"]  # Classes à détecter
+
+tracker:
+  max_disappeared: 30  # Nombre max de frames où un objet peut disparaître
+  min_iou_threshold: 0.3  # Seuil IoU minimum pour l'association
+
+line_crossing:
+  line:
+    start: [100, 300]  # Point de départ de la ligne [x, y]
+    end: [500, 300]    # Point d'arrivée de la ligne [x, y]
+  
+  # Direction de référence (optionnel)
+  # Le vecteur normal sera calculé automatiquement
+  reference_direction: "up"  # "up", "down", "left", "right"
+
+# Configuration de sortie
+output:
+  save_results: true
+  results_file: "results/line_crossing_results.json"
+  save_video: false

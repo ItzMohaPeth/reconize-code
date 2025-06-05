@@ -1,0 +1,40 @@
+# Configuration pour la détection d'intrusion
+
+detector:
+  model_path: "models/yolov8n.pt"
+  conf_threshold: 0.25
+  iou_threshold: 0.45
+  device: "auto"
+  target_classes: ["person"]
+
+tracker:
+  max_disappeared: 30
+  min_iou_threshold: 0.3
+
+intrusion_detection:
+  restricted_zones:
+    zone_1:
+      name: "Zone Interdite 1"
+      points: [[50, 50], [200, 50], [200, 200], [50, 200]]
+      color: [0, 0, 255]  # Rouge
+      security_level: "high"  # "low", "medium", "high"
+    
+    zone_2:
+      name: "Salle des Serveurs"
+      points: [[300, 100], [500, 100], [500, 300], [300, 300]]
+      color: [0, 0, 255]
+      security_level: "critical"
+  
+  # Configuration des alertes
+  alerts:
+    min_duration: 2.0      # Durée minimale d'intrusion avant alerte (secondes)
+    cooldown: 5.0          # Temps d'attente entre les alertes (secondes)
+    send_notifications: true
+    save_snapshots: true
+    snapshot_path: "alerts/intrusion_snapshots/"
+
+# Configuration de sortie
+output:
+  save_results: true
+  results_file: "results/intrusion_results.json"
+  alert_log: "logs/intrusion_alerts.log"
