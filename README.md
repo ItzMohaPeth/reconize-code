@@ -1,5 +1,10 @@
 # Système d'Analyse Vidéo Intelligent
 
+[![GitHub stars](https://img.shields.io/github/stars/ItzMohaPeth/reconize-code?style=social)](https://github.com/ItzMohaPeth/reconize-code/stargazers)
+[![GitHub forks](https://img.shields.io/github/forks/ItzMohaPeth/reconize-code?style=social)](https://github.com/ItzMohaPeth/reconize-code/network)
+[![GitHub issues](https://img.shields.io/github/issues/ItzMohaPeth/reconize-code)](https://github.com/ItzMohaPeth/reconize-code/issues)
+[![GitHub license](https://img.shields.io/github/license/ItzMohaPeth/reconize-code)](https://github.com/ItzMohaPeth/reconize-code/blob/main/LICENSE)
+
 Un système modulaire et extensible d'analyse vidéo utilisant YOLOv8 pour diverses tâches de détection et de comptage de personnes, ainsi que la détection de fumée et de feu.
 
 ## 🚀 Fonctionnalités
@@ -39,8 +44,8 @@ Un système modulaire et extensible d'analyse vidéo utilisant YOLOv8 pour diver
 
 1. **Cloner le projet**
 \`\`\`bash
-git clone <repository-url>
-cd video-analysis-system
+git clone https://github.com/ItzMohaPeth/reconize-code.git
+cd reconize-code
 \`\`\`
 
 2. **Installer les dépendances**
@@ -143,3 +148,47 @@ src/
 │   ├── waiting_time/        # Temps d'attente
 │   ├── intrusion_detection/ # Détection d'intrusion
 │   └── fire_smoke_detection
+
+## 🤝 Contribution
+
+Ce projet est hébergé sur GitHub : [reconize-code](https://github.com/ItzMohaPeth/reconize-code)
+
+### Développement
+
+1. **Fork le repository**
+2. **Créer une branche pour votre fonctionnalité**
+\`\`\`bash
+git checkout -b feature/nouvelle-fonctionnalite
+\`\`\`
+
+3. **Commiter vos changements**
+\`\`\`bash
+git commit -am 'Ajout d'une nouvelle fonctionnalité'
+\`\`\`
+
+4. **Pousser vers la branche**
+\`\`\`bash
+git push origin feature/nouvelle-fonctionnalite
+\`\`\`
+
+5. **Créer une Pull Request**
+
+### Issues et Support
+
+- 🐛 **Bugs** : [Signaler un bug](https://github.com/ItzMohaPeth/reconize-code/issues)
+- 💡 **Fonctionnalités** : [Demander une fonctionnalité](https://github.com/ItzMohaPeth/reconize-code/issues)
+- 📖 **Documentation** : [Améliorer la documentation](https://github.com/ItzMohaPeth/reconize-code/issues)
+
+## 📄 Licence
+
+Ce projet est sous licence MIT. Voir le fichier [LICENSE](LICENSE) pour plus de détails.
+
+## 👥 Auteurs
+
+- **ItzMohaPeth** - *Développeur principal* - [@ItzMohaPeth](https://github.com/ItzMohaPeth)
+
+## 🙏 Remerciements
+
+- [Ultralytics](https://github.com/ultralytics/ultralytics) pour YOLOv8
+- [OpenCV](https://opencv.org/) pour le traitement d'images
+- La communauté open source pour les outils et bibliothèques utilisés
